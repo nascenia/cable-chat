@@ -20,6 +20,10 @@ class ChatRoomsController < ApplicationController
     end
   end
 
+  def show
+    @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+  end
+
   def destroy
     @chat_room = ChatRoom.find(params[:id]).destroy
     flash[:success] = "Chat room is deleted"
