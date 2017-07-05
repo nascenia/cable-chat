@@ -1,0 +1,4 @@
+<li>
+  <%= link_to "Enter #{chat_room.title}", chat_room_path(chat_room) %>
+  <%= link_to 'Delete', chat_room, method: :delete, data: {confirm: "Are you sure?"} %>
+</li>
