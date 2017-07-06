@@ -1,4 +1,19 @@
 <li>
-  <%= link_to "Enter #{chat_room.title}", chat_room_path(chat_room) %>
-  <%= link_to 'Delete', chat_room, method: :delete, data: {confirm: "Are you sure?"} %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= link_to "Enter #{chat_room.title}", chat_room_path(chat_room) %>
+      <%= link_to 'Delete', chat_room, method: :delete, data: {confirm: "Are you sure?"} %>
+      <!--<%#= link_to 'chat_room.opposed_user(current_user)', '', class: 'toggle-window' %>-->
+      <!--<%#= link_to 'x', class: 'btn btn-default btn-xs pull-right' %>-->
+    </div>
+
+    <div class="panel-body" style="display: none;">
+      <div class="messages-list">
+        <ul>
+          <%= render 'chat_rooms/chat_room_content', messages: chat_room.messages %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </li>
+

@@ -2,6 +2,25 @@
 
 <p class="lead"><%= link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary' %></p>
 
-<ul>
-  <%= render @chat_rooms %>
-</ul>
+<div class="row">
+  <div class="col-md-9">
+    <ul id="chatrooms-list">
+      <%= render @chat_rooms %>
+    </ul>
+  </div>
+
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">User list</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @users.each do |user| %>
+            <li><%= user.email %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

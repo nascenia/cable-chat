@@ -1,0 +1,13 @@
+<li>
+  <div class="row">
+    <div class="col-md-11">
+      <p class="message-text">
+        <span class="text-muted"><%= message.user.name %> at <%= message.timestamp %> says</span>
+        <br>
+        <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
+          <%= message.body %>
+        </div>
+      </p>
+    </div>
+  </div>
+</li>

@@ -13,3 +13,13 @@
  */
 
 @import "bootstrap";
+
+ul {
+  padding-left: 0px;
+  list-style: none;
+}
+
+#messages {
+  max-height: 450px;
+  overflow-y: auto;
+}
