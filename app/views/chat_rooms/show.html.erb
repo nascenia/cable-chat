@@ -1,14 +1,31 @@
-<h1><%= @chat_room.title %></h1>
+<div class="col-md-9">
+  <h1><%= @chat_room.title %></h1>
 
-<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-  <%= render @chat_room.messages %>
+  <div id="messages" data-chat-room-id="<%= @chat_room.id %>">
+    <%= render @chat_room.messages %>
+  </div>
+
+  <%= form_for @message, url: '#' do |f| %>
+      <div class="form-group">
+        <%= f.text_area :body, class: 'form-control' %>
+        <small class="text-muted">From 2 to 1000 characters</small>
+      </div>
+      <%= f.submit 'Post', class: 'btn btn-primary btn-lg', data: {disable_with: false} %>
+  <% end %>
 </div>
 
-<%= form_for @message, url: '#' do |f| %>
-    <div class="form-group">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control' %>
-      <small class="text-muted">From 2 to 1000 characters</small>
+
+<div class="col-md-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Chat room list</h3>
     </div>
-    <%= f.submit 'Post', class: 'btn btn-primary btn-lg' %>
-<% end %>
+    <div class="panel-body">
+      <ul id="chatrooms-list">
+        <% @chat_rooms.each do |chat_room| %>
+            <li><%= render chat_room %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

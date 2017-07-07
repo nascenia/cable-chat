@@ -2,9 +2,6 @@ class ChatRoomsController < ApplicationController
   def index
     @users = User.all.where.not(id: current_user)
     @chat_rooms = ChatRoom.all
-    respond_to do |format|
-      format.html
-    end
   end
 
   def new
@@ -23,6 +20,8 @@ class ChatRoomsController < ApplicationController
 
   def show
     @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+    @chat_rooms = ChatRoom.all
+    @users = User.all.where.not(id: current_user)
     @message = Message.new
   end
 
